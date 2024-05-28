@@ -1,5 +1,5 @@
 # TG³ _[ 🚧 WIP 🚧 ]_
-### A fork of [TGTG notifications](https://github.com/LauPaSat-pl/TGTG_notifications) by [LauPaSat-pl](https://github.com/LauPaSat-pl)
+A fork of [LauPaSat-pl/TGTG notifications](https://github.com/LauPaSat-pl/TGTG_notifications), and inspired by [Der-Henning/tgtg](https://github.com/Der-Henning/tgtg) and [kacpi2442/am_bot](https://github.com/kacpi2442/am_bot/tree/main)
 
 [![tgtg notifications](https://github.com/LucasPlacentino/TG3/actions/workflows/notitications.yml/badge.svg)](https://github.com/LucasPlacentino/TG3/actions/workflows/notitications.yml)
 [![tgtg notifications](https://github.com/LucasPlacentino/TG3/actions/workflows/notitications2.yml/badge.svg)](https://github.com/LucasPlacentino/TG3/actions/workflows/notitications2.yml)
