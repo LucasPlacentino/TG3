@@ -1,9 +1,9 @@
-name: tgtg notifications
+name: TG3 notifications
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '*/15 7-9,16-18 * * *'
+  #schedule:
+  #  - cron: '*/15 7-9,16-18 * * *'
 
 jobs:
   build:
