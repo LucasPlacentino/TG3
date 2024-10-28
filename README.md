@@ -3,7 +3,7 @@ A fork of [LauPaSat-pl/TGTG notifications](https://github.com/LauPaSat-pl/TGTG_n
 
 [![tgtg notifications](https://github.com/LucasPlacentino/TG3/actions/workflows/notitications.yml/badge.svg)](https://github.com/LucasPlacentino/TG3/actions/workflows/notitications.yml)
 [![tgtg notifications](https://github.com/LucasPlacentino/TG3/actions/workflows/notitications2.yml/badge.svg)](https://github.com/LucasPlacentino/TG3/actions/workflows/notitications2.yml)
-[![tgtg notifications](/actions/workflows/notitications3.yml/badge.svg)](/actions/workflows/notitications3.yml)
+[![tgtg notifications](../../actions/workflows/notitications3.yml/badge.svg)](../../actions/workflows/notitications3.yml)
 
 ## There are 2 versions: 
 
