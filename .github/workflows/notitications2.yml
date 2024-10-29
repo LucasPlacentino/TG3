@@ -1,4 +1,4 @@
-name: TG3 notifications
+name: TG3 notifications (2)
 
 on:
   workflow_dispatch:
