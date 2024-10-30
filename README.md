@@ -80,4 +80,7 @@ _**[WIP]**_
 > clone  
 > .env.template -> .env  
 > docker?  
-> ...  
+> ...
+
+## 403 error
+Getting a `tgtg.exceptions.TgtgAPIError: (403, b'{"url"...` error ? You are getting blocked by the TooGoodToGo API by their bot prevention, try sending requests less frequently or wait a couple hours. (More info or solutions at the [tgtg-python repo](https://github.com/ahivert/tgtg-python)) 
