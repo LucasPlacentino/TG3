@@ -33,14 +33,14 @@ async def main() -> None:
         print(e)
         print("Error creating TgtgClient, aborting...")
         return
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(1.2)
     try:
         bot: Bot = Bot(telegram_bot_id)
     except Exception as e:
         print(e)
         print("Error creating Telegram bot, aborting...")
         return
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(1.1)
     all_products = tgtg_client.get_items()
     #all_items = tgtg_client.get_items(favorites_only=False,
     #                                   latitude=location_lat,
