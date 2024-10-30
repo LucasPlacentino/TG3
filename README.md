@@ -30,7 +30,7 @@ A fork of [LauPaSat-pl/TGTG notifications](https://github.com/LauPaSat-pl/TGTG_n
 ## Setup:
 1. Create a new Telegram bot using BotFather [tutorial](https://core.telegram.org/bots#how-do-i-create-a-bot) -> get your `TG_BOT_ID`,  
 2. Check your Telegram ID [tutorial](https://www.alphr.com/telegram-find-user-id/) -> this will be your `TG_CHAT_ID`,  
-3. Install the `tgtg` Python library  
+3. Install the [`tgtg`](https://github.com/ahivert/tgtg-python) Python library  
 ```
 pip install tgtg
 ```
