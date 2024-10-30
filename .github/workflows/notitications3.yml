@@ -1,9 +1,10 @@
-name: TG3 notifications (3)
+name: TG3 notifications (3) additional
 
 on:
   workflow_dispatch:
   #schedule:
-  #  - cron: '*/15 10-12,19-21 * * *'
+  #  # UTC time !
+  #  - cron: '*/15 10-13,19-21 * * *' # every 15 minutes between 10-13 and 19-21
 
 jobs:
   build:

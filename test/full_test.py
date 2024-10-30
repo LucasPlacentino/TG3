@@ -1,29 +1,22 @@
-# Github Actions main script
-
-import asyncio
-import os
+from telegram import Bot
+from tgtg import TgtgClient
+from os import getenv
+from dotenv import load_dotenv
+load_dotenv()
 import time
+import asyncio
 import sys
 sys.stdin.reconfigure(encoding='utf-8')
 sys.stdout.reconfigure(encoding='utf-8')
 
-from telegram import Bot
-from tgtg import TgtgClient
+telegram_bot_id: str = getenv('TG_BOT_ID')
+telegram_chat_id: str = getenv('TG_CHAT_ID')
+access_token: str = getenv('ACCESS_TOKEN')
+refresh_token: str = getenv("REFRESH_TOKEN")
+tgtg_user_id: str = getenv('TGTG_USER_ID')
+cookie: str = getenv('COOKIE')
 
-#location_lat= # latitude
-#location_long= # longitude
-#location_range= # radius
-
-
-async def main() -> None:
-    # get environment variables (from Github repo secrets)
-    access_token: str = os.environ['ACCESS_TOKEN']
-    refresh_token: str = os.environ["REFRESH_TOKEN"]
-    tgtg_user_id: str = os.environ['TGTG_USER_ID']
-    cookie: str = os.environ['COOKIE']
-    telegram_bot_id: str = os.environ['TG_BOT_ID']
-    telegram_chat_id: str = os.environ['TG_CHAT_ID']
-
+async def main():
     try:
         tgtg_client: TgtgClient = TgtgClient(access_token=access_token,
                                              refresh_token=refresh_token,
@@ -32,28 +25,21 @@ async def main() -> None:
     except Exception as e:
         print(e)
         print("Error creating TgtgClient, aborting...")
-        return
-    await asyncio.sleep(0.5)
+        sys.exit(1)
+    await asyncio.sleep(1)
     try:
         bot: Bot = Bot(telegram_bot_id)
     except Exception as e:
         print(e)
         print("Error creating Telegram bot, aborting...")
-        return
-    await asyncio.sleep(0.5)
+        sys.exit(1)
+
+    await asyncio.sleep(1)
     all_products = tgtg_client.get_items()
-    #all_items = tgtg_client.get_items(favorites_only=False,
-    #                                   latitude=location_lat,
-    #                                   longitude=location_long,
-    #                                   radius=location_range,
-    #                                   page_size=300)
-    
-    if all(product['items_available'] == 0 for product in all_products):
-        print("No items available, exiting...")
-        return
-    
+
     # emojis: https://www.quackit.com/character_sets/emoji/emoji_v3.0/unicode_emoji_v3.0_characters_all.cfm
-    telegram_text = f"&#128276; <u>Some of your favorite items available on TooGoodToGo:</u>\n"
+    telegram_text = f"<i><b>[TEST]</b></i>&#128276; <u>Some of your favorite items available on TooGoodToGo:</u>\n"
+    
     for product in all_products:
         amount_available = product['items_available']
         if amount_available > 0:
@@ -82,19 +68,15 @@ async def main() -> None:
     telegram_text += f'<a href="https://tgtg.onelink.me/OGjG"><b>&#10145;Open TGTG App</b></a>\n'
     #telegram_text += f"\n**[Open TooGoodToGo](toogoodtogoapp://)**" # doesn't work :(
 
-    
+    await asyncio.sleep(1)
     print("Sending message...")
-    try:
-        response = await bot.send_message(chat_id=telegram_chat_id,
-                                          text=telegram_text,
-                                          #disable_web_page_preview=True,
-                                          parse_mode="HTML") # MarkdownV2 or HMTL
-    except Exception as e:
-        print("Error sending Telegram message, aborting...")
-        return
-    print("Message sent." if response else "Message not sent?")
+    response = await bot.send_message(chat_id=telegram_chat_id,
+                                text=telegram_text,
+                                #disable_web_page_preview=True,
+                                parse_mode="HTML") # MarkdownV2 or HMTL
+    print("Message sent.")
+    print("response: ",end="")
+    print(response)
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())
-    #main()
